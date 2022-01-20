@@ -2,9 +2,9 @@ package com.qa.main;
 
 import java.util.Arrays;
 
+import com.qa.main.items.Books;
 import com.qa.main.items.Newspapers;
 import com.qa.main.items.Theses;
-import com.qa.main.items.books.Books;
 import com.qa.main.library.Library;
 import com.qa.main.person.Person;
 

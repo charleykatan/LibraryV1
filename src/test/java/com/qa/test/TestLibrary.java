@@ -7,7 +7,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import com.qa.main.items.*;
-import com.qa.main.items.books.Books;
 import com.qa.main.library.Library;
 import com.qa.main.person.Person;
 

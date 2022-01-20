@@ -1,6 +1,4 @@
-package com.qa.main.items.books;
-
-import com.qa.main.items.Item;
+package com.qa.main.items;
 
 public class Books extends Item {
 
