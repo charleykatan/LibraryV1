@@ -68,6 +68,7 @@ public class Library {
 		if (i.getAvailable() == false) {
 			i.setAvailable(true);
 			p.setItemsBorrowed(p.getItemsBorrowed() - 1);
+			// make removeLoans method
 			p.getLoans().remove(i);
 			return p.getFirstName() + " " + p.getSurname() + " has returned " + i.getTitle() + ".\n"
 					+ p.getFirstName() + " " + p.getSurname() + " has " + (5 - p.getItemsBorrowed())
@@ -77,20 +78,24 @@ public class Library {
 		}
 	}
 
-	public void updateMemFName(Person p, String newFName) {
+	public String updateMemFName(Person p, String newFName) {
 		p.setFirstName(newFName);
+		return p.getFirstName();
 	}
 
-	public void updateMemSName(Person p, String newSName) {
+	public String updateMemSName(Person p, String newSName) {
 		p.setSurname(newSName);
+		return p.getSurname();
 	}
 
 	public void addItem(Item i) {
 		inventory.add(i);
+		System.out.println(i.getTitle() + " has been added.");
 	}
 
 	public void removeItem(Item i) {
 		inventory.remove(i);
+		System.out.println(i.getTitle() + " has been removed.");
 	}
 
 }

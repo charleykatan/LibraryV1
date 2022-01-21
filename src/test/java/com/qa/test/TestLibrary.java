@@ -24,6 +24,7 @@ public class TestLibrary {
 	Person kenan = new Person("Kenan", "Cruz Cilli");
 	Person kessem = new Person("Kessem", "Adiv");
 	Person laura = new Person("Laura", "Katan");
+	Person ben = new Person("Ben", "Reiff");
 
 	@Test
 	public void testCheckOut() {
@@ -38,7 +39,7 @@ public class TestLibrary {
 		testLibrary.checkOut(charley, bible);
 		testLibrary.checkOut(charley, thesisOne);
 		testLibrary.checkIn(charley, bible);
-		assertFalse(charley.getLoans().contains(bible));
+		assertTrue(bible.getAvailable());
 	}
 
 	@Test
@@ -96,5 +97,25 @@ public class TestLibrary {
 		assertEquals("Sorry, you have 0 loans remaining. Return an item to check out a new item.",
 				testLibrary.checkOut(kessem, theTimes));
 
+	}
+	
+	@Test
+	public void alreadyCheckedOut() {
+		testLibrary.register(laura);
+		testLibrary.register(charley);
+		testLibrary.checkOut(laura, tkamb);
+		assertEquals("Sorry, this item is unavailable.", testLibrary.checkOut(charley, tkamb));
+	}
+
+	@Test
+	public void CheckedInNotCheckedOut() {
+		testLibrary.register(ben);
+		assertEquals("This item has not been checked out.", testLibrary.checkIn(ben, ckThesis));
+	}
+
+	@Test
+	public void updateMemberRecord() {
+		testLibrary.register(bella);
+		assertEquals("Isabella", testLibrary.updateMemFName(bella, "Isabella"));
 	}
 }
