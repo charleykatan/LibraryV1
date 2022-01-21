@@ -4,6 +4,9 @@ import com.qa.main.interfaces.Update;
 
 public abstract class Item implements Update {
 
+	// Could add another object (not paperbased), initialise new Interface, and
+	// implement them on subclasses
+
 	// Attributes
 	private static int nextID = 0;
 
@@ -33,7 +36,7 @@ public abstract class Item implements Update {
 
 	// Abstract method
 	public abstract void describe();
-	
+
 	// toString
 	@Override
 	public String toString() {
@@ -60,7 +63,7 @@ public abstract class Item implements Update {
 	public void updatePubYr(int newPubYr) {
 		this.setPubYear(newPubYr);
 	}
-	
+
 	// Getters and Setters
 	public String getTitle() {
 		return title;

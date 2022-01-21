@@ -47,8 +47,7 @@ public class Library {
 		String output = "";
 		if (this.memberList.contains(p) == false) {
 			output = "Sorry, only members can check out items.";
-		}
-		if (this.memberList.contains(p)) {
+		} else {
 			if (p.getItemsBorrowed() < 5) {
 				if (i.getAvailable() == true) {
 					i.setAvailable(false);
