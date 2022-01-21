@@ -28,14 +28,6 @@ public class Main {
 		
 		testLibrary.inventory.addAll(Arrays.asList(bible, thesisOne, theGuardian, tkamb, ckThesis, theTimes));
 		
-		testLibrary.printInventoryList();
-		testLibrary.register(laura);
-		testLibrary.register(kenan);
-		testLibrary.register(kessem);
-		testLibrary.checkOut(laura, theTimes);
-		testLibrary.checkOut(laura, theGuardian);
-		System.out.println(laura.getLoans());
-		
 	}
 
 }
