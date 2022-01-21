@@ -44,11 +44,11 @@ public class Library {
 	}
 
 	public String checkOut(Person p, Item i) {
-		if (this.memberList.contains(p) == false) {
+		if (!this.memberList.contains(p)) {
 			return "Sorry, only members can check out items.";
 		} else {
 			if (p.getItemsBorrowed() < 5) {
-				if (i.getAvailable() == true) {
+				if (i.getAvailable()) {
 					i.setAvailable(false);
 					p.setItemsBorrowed(1 + p.getItemsBorrowed());
 					// make addLoan method cos this is tricky
@@ -65,7 +65,7 @@ public class Library {
 	}
 
 	public String checkIn(Person p, Item i) {
-		if (i.getAvailable() == false) {
+		if (!i.getAvailable()) {
 			i.setAvailable(true);
 			p.setItemsBorrowed(p.getItemsBorrowed() - 1);
 			// make removeLoans method
