@@ -14,15 +14,15 @@ public class Library {
 	public List<Person> memberList = new ArrayList<Person>();
 
 	public void printInventoryList() {
-		for (int i = 0; i < inventory.size(); i++) {
-			System.out.println(inventory.get(i) + "\n");
+		for (Item i : inventory) {
+			System.out.println(i + "\n");
 		}
 		System.out.println("Number of items: " + inventory.size() + "\n");
 	}
 
 	public void printMemberList() {
-		for (int i = 0; i < memberList.size(); i++) {
-			System.out.print(memberList.get(i) + "\n");
+		for (Person p : memberList) {
+			System.out.print(p + "\n");
 		}
 		System.out.println("Number of library members: " + memberList.size() + "\n");
 	}
@@ -31,7 +31,6 @@ public class Library {
 		memberList.add(p);
 		p.setMemberNo(nextMemberNo);
 		nextMemberNo++;
-		p.setBalanceDue(0);
 		p.setItemsBorrowed(0);
 		System.out.println(p.getFirstName() + " " + p.getSurname() + " has been registered.");
 		System.out.println("Member Number: " + p.getMemberNo() + "\n");
@@ -48,8 +47,7 @@ public class Library {
 		String output = "";
 		if (this.memberList.contains(p) == false) {
 			output = "Sorry, only members can check out items.";
-		}
-		if (this.memberList.contains(p)) {
+		} else {
 			if (p.getItemsBorrowed() < 5) {
 				if (i.getAvailable() == true) {
 					i.setAvailable(false);
