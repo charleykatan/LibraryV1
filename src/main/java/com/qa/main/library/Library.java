@@ -31,7 +31,6 @@ public class Library {
 		memberList.add(p);
 		p.setMemberNo(nextMemberNo);
 		nextMemberNo++;
-		p.setBalanceDue(0);
 		p.setItemsBorrowed(0);
 		System.out.println(p.getFirstName() + " " + p.getSurname() + " has been registered.");
 		System.out.println("Member Number: " + p.getMemberNo() + "\n");

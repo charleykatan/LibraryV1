@@ -5,7 +5,7 @@ import com.qa.main.interfaces.Update;
 public abstract class Item implements Update {
 
 	// Attributes
-	private static int nextID = 1;
+	private static int nextID = 0;
 
 	private String title;
 	private String authorSurname;

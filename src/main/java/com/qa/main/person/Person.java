@@ -11,7 +11,6 @@ public class Person {
 	private String surname;
 	private int memberNo;
 	private int itemsBorrowed;
-	private double balanceDue;
 	
 	private List<Item> loans = new ArrayList<Item>();
 	
@@ -24,8 +23,6 @@ public class Person {
 	public String toString() {
 		return firstName + " " + surname + ", Member Number " + memberNo;
 	}
-
-
 
 	public Person() {
 	}
@@ -52,14 +49,6 @@ public class Person {
 
 	public void setItemsBorrowed(int itemsBorrowed) {
 		this.itemsBorrowed = itemsBorrowed;
-	}
-
-	public double getBalanceDue() {
-		return balanceDue;
-	}
-
-	public void setBalanceDue(double balanceDue) {
-		this.balanceDue = balanceDue;
 	}
 
 	public int getMemberNo() {
