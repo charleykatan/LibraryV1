@@ -31,4 +31,8 @@ public class Thesis extends Item {
 		this.discipline = discipline;
 	}
 
+	public void updateDiscipline(String newDiscipline) {
+		this.setDiscipline(newDiscipline);
+	}
+	
 }
