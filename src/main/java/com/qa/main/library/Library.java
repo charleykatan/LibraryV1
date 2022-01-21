@@ -17,7 +17,7 @@ public class Library {
 		for (int i = 0; i < inventory.size(); i++) {
 			System.out.println(inventory.get(i) + "\n");
 		}
-		System.out.println("Number of items: " + inventory.size());
+		System.out.println("Number of items: " + inventory.size() + "\n");
 	}
 
 	public void printMemberList() {
@@ -44,9 +44,10 @@ public class Library {
 		printMemberList();
 	}
 
-	public void memberCheckOut(Person p, Item i) {
+	public String checkOut(Person p, Item i) {
+		String output = "";
 		if (this.memberList.contains(p) == false) {
-			System.out.println("Sorry, only members can check out items.");
+			output = "Sorry, only members can check out items.";
 		}
 		if (this.memberList.contains(p)) {
 			if (p.getItemsBorrowed() < 5) {
@@ -54,27 +55,30 @@ public class Library {
 					i.setAvailable(false);
 					p.setItemsBorrowed(1 + p.getItemsBorrowed());
 					p.getLoans().add(i);
-					System.out.println(i.getTitle() + " has been checked out by " + p);
+					output = i.getTitle() + " has been checked out by " + p;
 				} else if (i.getAvailable() == false) {
-					System.out.println("Sorry, this item is unavailable.");
+					output = "Sorry, this item is unavailable.";
 				}
 			} else if (p.getItemsBorrowed() >= 5) {
-				System.out.println("Sorry, you have 0 loans remaining. Return an item to check out a new item.");
+				output = "Sorry, you have 0 loans remaining. Return an item to check out a new item.";
 			}
 		}
+		return output;
 	}
 
-	public void memberCheckIn(Person p, Item i) {
+	public String checkIn(Person p, Item i) {
+		String output = "";
 		if (i.getAvailable() == false) {
 			i.setAvailable(true);
 			p.setItemsBorrowed(p.getItemsBorrowed() - 1);
 			p.getLoans().remove(i);
-			System.out.println(p.getFirstName() + " " + p.getSurname() + " has returned " + i.getTitle() + ".");
-			System.out.println(p.getFirstName() + " " + p.getSurname() + " has " + (5 - p.getItemsBorrowed())
-					+ " loans remaining.");
+			output = p.getFirstName() + " " + p.getSurname() + " has returned " + i.getTitle() + ".\n"
+					+ p.getFirstName() + " " + p.getSurname() + " has " + (5 - p.getItemsBorrowed())
+					+ " loans remaining.";
 		} else if (i.getAvailable() == true) {
-			System.out.println("This item has not been checked out.");
+			output = "This item has not been checked out.";
 		}
+		return output;
 	}
 
 	public void updateMemFName(Person p, String newFName) {

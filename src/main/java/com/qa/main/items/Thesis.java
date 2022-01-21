@@ -1,6 +1,6 @@
 package com.qa.main.items;
 
-public class Theses extends Item {
+public class Thesis extends Item {
 
 	private String discipline;
 
@@ -14,11 +14,11 @@ public class Theses extends Item {
 		return super.toString() + " Discipline: School of " + discipline;
 	}
 
-	public Theses() {
+	public Thesis() {
 		super();
 	}
 
-	public Theses(String title, String authorSurname, String authorFirstname, int pubYear, String discipline) {
+	public Thesis(String title, String authorSurname, String authorFirstname, int pubYear, String discipline) {
 		super(title, authorSurname, authorFirstname, pubYear);
 		this.discipline = discipline;
 	}
