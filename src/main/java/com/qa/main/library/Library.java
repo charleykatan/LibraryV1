@@ -44,39 +44,37 @@ public class Library {
 	}
 
 	public String checkOut(Person p, Item i) {
-		String output = "";
 		if (this.memberList.contains(p) == false) {
-			output = "Sorry, only members can check out items.";
+			return "Sorry, only members can check out items.";
 		} else {
 			if (p.getItemsBorrowed() < 5) {
 				if (i.getAvailable() == true) {
 					i.setAvailable(false);
 					p.setItemsBorrowed(1 + p.getItemsBorrowed());
+					// make addLoan method cos this is tricky
 					p.getLoans().add(i);
-					output = i.getTitle() + " has been checked out by " + p;
-				} else if (i.getAvailable() == false) {
-					output = "Sorry, this item is unavailable.";
+					return i.getTitle() + " has been checked out by " + p + ". You have " + (5 - p.getItemsBorrowed())
+							+ " loans remaining.";
+				} else {
+					return "Sorry, this item is unavailable.";
 				}
-			} else if (p.getItemsBorrowed() >= 5) {
-				output = "Sorry, you have 0 loans remaining. Return an item to check out a new item.";
+			} else {
+				return "Sorry, you have 0 loans remaining. Return an item to check out a new item.";
 			}
 		}
-		return output;
 	}
 
 	public String checkIn(Person p, Item i) {
-		String output = "";
 		if (i.getAvailable() == false) {
 			i.setAvailable(true);
 			p.setItemsBorrowed(p.getItemsBorrowed() - 1);
 			p.getLoans().remove(i);
-			output = p.getFirstName() + " " + p.getSurname() + " has returned " + i.getTitle() + ".\n"
+			return p.getFirstName() + " " + p.getSurname() + " has returned " + i.getTitle() + ".\n"
 					+ p.getFirstName() + " " + p.getSurname() + " has " + (5 - p.getItemsBorrowed())
 					+ " loans remaining.";
-		} else if (i.getAvailable() == true) {
-			output = "This item has not been checked out.";
+		} else {
+			return "This item has not been checked out.";
 		}
-		return output;
 	}
 
 	public void updateMemFName(Person p, String newFName) {
