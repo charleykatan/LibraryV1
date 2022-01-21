@@ -1,4 +1,4 @@
-package com.qa.main.items;
+package com.qa.main.interfaces;
 
 public interface Update {
 

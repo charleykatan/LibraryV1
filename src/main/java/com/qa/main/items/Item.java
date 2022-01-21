@@ -1,5 +1,7 @@
 package com.qa.main.items;
 
+import com.qa.main.interfaces.Update;
+
 public abstract class Item implements Update {
 
 	// Attributes
