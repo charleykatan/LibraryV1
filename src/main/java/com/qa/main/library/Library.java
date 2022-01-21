@@ -65,16 +65,20 @@ public class Library {
 	}
 
 	public String checkIn(Person p, Item i) {
-		if (!i.getAvailable()) {
-			i.setAvailable(true);
-			p.setItemsBorrowed(p.getItemsBorrowed() - 1);
-			// make removeLoans method
-			p.getLoans().remove(i);
-			return p.getFirstName() + " " + p.getSurname() + " has returned " + i.getTitle() + ".\n"
-					+ p.getFirstName() + " " + p.getSurname() + " has " + (5 - p.getItemsBorrowed())
-					+ " loans remaining.";
+		if (!this.memberList.contains(p)) {
+			return "Sorry, only members can check in items.";
 		} else {
-			return "This item has not been checked out.";
+			if (!i.getAvailable()) {
+				i.setAvailable(true);
+				p.setItemsBorrowed(p.getItemsBorrowed() - 1);
+				// make removeLoans method
+				p.getLoans().remove(i);
+				return p.getFirstName() + " " + p.getSurname() + " has returned " + i.getTitle() + ".\n"
+						+ p.getFirstName() + " " + p.getSurname() + " has " + (5 - p.getItemsBorrowed())
+						+ " loans remaining.";
+			} else {
+				return "This item has not been checked out.";
+			}
 		}
 	}
 
