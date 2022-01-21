@@ -19,15 +19,19 @@ public class TestLibrary {
 	Person charley = new Person("Charley", "Katan");
 	Person bella = new Person("Bella", "Little");
 	Person kenan = new Person("Kenan", "Cruz Cilli");
+	Person kessem = new Person("Kessem", "Adiv");
+	Person laura = new Person("Laura", "Katan");
 	
 	@Test
 	public void testCheckOut() {
+		testLibrary.register(bella);
 		testLibrary.memberCheckOut(bella, bible);
 		assertTrue(bella.getLoans().contains(bible));
 	}
 
 	@Test
 	public void testCheckIn() {
+		testLibrary.register(charley);
 		testLibrary.memberCheckOut(charley, bible);
 		testLibrary.memberCheckOut(charley, thesisOne);
 		testLibrary.memberCheckIn(charley, bible);
@@ -67,9 +71,9 @@ public class TestLibrary {
 	
 	@Test
 	public void deleteMember() {
-		testLibrary.register(bella);
-		testLibrary.register(charley);
-		testLibrary.deleteMember(charley);
+		testLibrary.register(kessem);
+		testLibrary.register(laura);
+		testLibrary.deleteMember(laura);
 		assertFalse(testLibrary.memberList.contains(charley));
 	}
 }

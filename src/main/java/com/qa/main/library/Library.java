@@ -44,18 +44,23 @@ public class Library {
 		printMemberList();
 	}
 
-	// Could improve to make checkout contingent on registration, also to print output message
 	public void memberCheckOut(Person p, Item i) {
-		if (p.getItemsBorrowed() < 5) {
-			if (i.getAvailable() == true) {
-				i.setAvailable(false);
-				p.setItemsBorrowed(1 + p.getItemsBorrowed());
-				p.getLoans().add(i);
-			} else if (i.getAvailable() == false) {
-				System.out.println("Sorry, this item is unavailable.");
+		if (this.memberList.contains(p) == false) {
+			System.out.println("Sorry, only members can check out items.");
+		}
+		if (this.memberList.contains(p)) {
+			if (p.getItemsBorrowed() < 5) {
+				if (i.getAvailable() == true) {
+					i.setAvailable(false);
+					p.setItemsBorrowed(1 + p.getItemsBorrowed());
+					p.getLoans().add(i);
+					System.out.println(i.getTitle() + " has been checked out by " + p);
+				} else if (i.getAvailable() == false) {
+					System.out.println("Sorry, this item is unavailable.");
+				}
+			} else if (p.getItemsBorrowed() >= 5) {
+				System.out.println("Sorry, you have 0 loans remaining. Return an item to check out a new item.");
 			}
-		} else if (p.getItemsBorrowed() >= 5) {
-			System.out.println("Sorry, you have 0 loans remaining. Return an item to check out a new item.");
 		}
 	}
 
@@ -64,7 +69,9 @@ public class Library {
 			i.setAvailable(true);
 			p.setItemsBorrowed(p.getItemsBorrowed() - 1);
 			p.getLoans().remove(i);
-			System.out.println("You have " + (5 - p.getItemsBorrowed()) + " loans remaining");
+			System.out.println(p.getFirstName() + " " + p.getSurname() + " has returned " + i.getTitle() + ".");
+			System.out.println(p.getFirstName() + " " + p.getSurname() + " has " + (5 - p.getItemsBorrowed())
+					+ " loans remaining.");
 		} else if (i.getAvailable() == true) {
 			System.out.println("This item has not been checked out.");
 		}
