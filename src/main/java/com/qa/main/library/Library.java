@@ -14,15 +14,15 @@ public class Library {
 	public List<Person> memberList = new ArrayList<Person>();
 
 	public void printInventoryList() {
-		for (int i = 0; i < inventory.size(); i++) {
-			System.out.println(inventory.get(i) + "\n");
+		for (Item i : inventory) {
+			System.out.println(i + "\n");
 		}
 		System.out.println("Number of items: " + inventory.size() + "\n");
 	}
 
 	public void printMemberList() {
-		for (int i = 0; i < memberList.size(); i++) {
-			System.out.print(memberList.get(i) + "\n");
+		for (Person p : memberList) {
+			System.out.print(p + "\n");
 		}
 		System.out.println("Number of library members: " + memberList.size() + "\n");
 	}
