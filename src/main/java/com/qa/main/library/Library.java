@@ -54,7 +54,7 @@ public class Library {
 					p.setItemsBorrowed(1 + p.getItemsBorrowed());
 					p.getLoans().add(i);
 					output = i.getTitle() + " has been checked out by " + p;
-				} else if (i.getAvailable() == false) {
+				} else {
 					output = "Sorry, this item is unavailable.";
 				}
 			} else if (p.getItemsBorrowed() >= 5) {
