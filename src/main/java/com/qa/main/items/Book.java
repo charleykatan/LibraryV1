@@ -1,17 +1,17 @@
 package com.qa.main.items;
 
-public class Books extends Item {
+public class Book extends Item {
 
 	// Attributes
 	private int length;
 	private String genre;
 
 	// Constructors
-	public Books() {
+	public Book() {
 		super();
 	}
 
-	public Books(String title, String authorSurname, String authorFirstname, int pubYear, int length, String genre) {
+	public Book(String title, String authorSurname, String authorFirstname, int pubYear, int length, String genre) {
 		super(title, authorSurname, authorFirstname, pubYear);
 		this.length = length;
 		this.genre = genre;

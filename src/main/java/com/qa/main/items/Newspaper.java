@@ -1,6 +1,6 @@
 package com.qa.main.items;
 
-public class Newspapers extends Item {
+public class Newspaper extends Item {
 
 	private int issueNo;
 
@@ -21,11 +21,11 @@ public class Newspapers extends Item {
 		return super.toString() + " Issue Number: " + issueNo;
 	}
 
-	public Newspapers() {
+	public Newspaper() {
 		super();
 	}
 
-	public Newspapers(String title, String authorSurname, String authorFirstname, int pubYear, int issueNo) {
+	public Newspaper(String title, String authorSurname, String authorFirstname, int pubYear, int issueNo) {
 		super(title, authorSurname, authorFirstname, pubYear);
 		this.issueNo = issueNo;
 	}

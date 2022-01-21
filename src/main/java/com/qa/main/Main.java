@@ -2,9 +2,9 @@ package com.qa.main;
 
 import java.util.Arrays;
 
-import com.qa.main.items.Books;
-import com.qa.main.items.Newspapers;
-import com.qa.main.items.Theses;
+import com.qa.main.items.Book;
+import com.qa.main.items.Newspaper;
+import com.qa.main.items.Thesis;
 import com.qa.main.library.Library;
 import com.qa.main.person.Person;
 
@@ -14,22 +14,28 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 		Library testLibrary = new Library();
-		Books bible = new Books("The Bible", "Anon", "Anon", 0, 1000, "Religious");
-		Theses thesisOne = new Theses("A Proof of Light", "Bella", "Little", 2022, "Physics");
-		Newspapers theGuardian = new Newspapers("The Guardian", "The", "Guardian", 2021, 1356);	
+		Book bible = new Book("The Bible", "Anon", "Anon", 0, 1000, "Religious");
+		Thesis thesisOne = new Thesis("A Proof of Light", "Bella", "Little", 2022, "Physics");
+		Newspaper theGuardian = new Newspaper("The Guardian", "The", "Guardian", 2021, 1356);
+		Book tkamb = new Book("To Kill a Mockingbird", "Harper", "Lee", 1954, 600, "Fiction");
+		Thesis ckThesis = new Thesis("Retreating from Zion?", "Charley", "Katan", 2021, "Sociology");
+		Newspaper theTimes = new Newspaper("The Times", "Rupert", "Murdoch", 2001, 2002);
 		Person charley = new Person("Charley", "Katan");
 		Person bella = new Person("Bella", "Little");
+		Person kenan = new Person("Kenan", "Cruz Cilli");
+		Person kessem = new Person("Kessem", "Adiv");
+		Person laura = new Person("Laura", "Katan");
 		
-		testLibrary.inventory.addAll(Arrays.asList(bible, thesisOne, theGuardian));
+		testLibrary.inventory.addAll(Arrays.asList(bible, thesisOne, theGuardian, tkamb, ckThesis, theTimes));
 		
-		System.out.println(testLibrary.inventory);
+		testLibrary.printInventoryList();
+		testLibrary.register(laura);
+		testLibrary.register(kenan);
+		testLibrary.register(kessem);
+		testLibrary.checkOut(laura, theTimes);
+		testLibrary.checkOut(laura, theGuardian);
+		System.out.println(laura.getLoans());
 		
-		testLibrary.memberCheckOut(bella, theGuardian);
-		testLibrary.memberCheckOut(bella, thesisOne);
-		System.out.println(bella.getLoans());
-		testLibrary.memberCheckOut(charley, theGuardian);
-		testLibrary.memberCheckIn(bella, theGuardian);
-		testLibrary.memberCheckOut(charley, theGuardian);
 	}
 
 }
